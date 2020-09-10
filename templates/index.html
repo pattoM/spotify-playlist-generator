@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{%block content %}
+<div class="row">
+    <div class="col text-center mb-2">
+        <h4 style="font-weight:700;">Spotify Playlist Generator</h4>
+    </div>
+</div>
+<div class="row mt-4 justify-content-center">
+
+    <div class="col-md-6">
+        <h5>Choose options</h5>
+        <hr/>
+        <form>
+            <div class="form-group">
+              <label for="danceability">Dance-ability</label>
+              <input type="range" min="1" max="10" step="1" class="form-control-range" id="danceability" value="3" name="danceability">
+            </div>
+
+            <div class="form-group">
+                <label for="valence">Valence</label>
+                <input type="range" min="1" max="10" step="1" class="form-control-range" id="valence" value="5" name="valence">
+            </div>
+
+            <div class="form-group">
+                <label for="energy">Energy</label>
+                <input type="range" min="1" max="10" step="1" class="form-control-range" id="energy" value="2" name="energy">
+            </div>
+
+            <div class="form-group">
+                <label for="track-count">Track Count</label>
+                <input type="number" class="form-control" max="10" min="1" value="10" name="track-count" id="track-count" required>
+            </div>
+
+            <div class="form-group">
+                <label for="seed-genre">Seed Genre</label>
+                <select class="form-control" id="seed-genre" name="seed-genre" required>
+                  <option value="rock">Rock</option>
+                  <option value="afrobeat">Afrobeat</option>
+                  <option value="club">Club</option>
+                  <option value="country">Country</option>
+                  <option value="dancehall">Dancehall</option>
+                  <option value="edm">Edm</option>
+                  <option value="hip-hop">Hip-hop</option>
+                  <option value="house">House</option>
+                  <!-- Add more options here as needed. Get options from the spotify api  -->
+                </select>
+            </div>
+
+            <button type="button" id="generate-spotify-recs" class="btn">Generate playlist</button>
+
+          </form>
+    </div>
+
+    <div class="col-md-6 border-left">
+        <h5>Recommendations</h5>
+        <hr/>
+        <div id="song-container">
+
+        </div>
+        
+        <div class="form-group" id="playlist-name-div" style="display: none;">
+            <br/>
+            <hr/>
+            <input type="text" class="form-control" placeholder="Type a name for the new playlist " id="playlistname"/> 
+
+            <button type="button" id="create-my-playlist" class="btn" style="">Save Playlist to Spotify <i class="material-icons">add</i></button>
+        </div>
+        
+
+        
+    </div>
+</div>
+
+{% endblock %}
